@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="../static/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Nicole W">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse - Checkout</title>
+</head>
+<body onload="addYear(); greetingFunc();">
+  <header class="navbar">
+    <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo"> 
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="tickets.html">Tickets</a>
+      <a id="navselected" href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <h1>Checkout</h1>
+
+    <section>
+      <form>
+        <label for="name">Name (required)</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email (required)</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="quantity">Ticket Quantity (required)</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p id="copyYear"></p>
+  </footer>
+</body>
+</html>
