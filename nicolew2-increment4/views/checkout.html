@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="../static/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Nicole W">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse - Checkout</title>
+</head>
+<body onload="addYear(); greetingFunc();">
+    <div class="container"
+    <header class="header">
+
+    <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+    <nav class="nav_bar">
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="buytickets.html">Buy Tickets</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <h1>Checkout</h1>
+
+    <section>
+      <form id="checkoutForm">
+        <label for="visitDate">Visit Date (required)</label>
+        <input type="date" id="visitDate" name="visitDate" required>
+
+        <label for="ticketType">Ticket Type (required)</label>
+        <select id="ticketType" name="ticketType" required>
+          <option value="">Select a ticket type</option>
+          <option value="general">General</option>
+          <option value="student">Student</option>
+          <option value="member">Member</option>
+        </select>
+
+        <label for="quantity">Ticket Quantity (required)</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10" required>
+
+        <label for="email">Email (required)</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="zip">Zip Code (optional)</label>
+        <input type="text" id="zip" name="zip" maxlength="5">
+
+        <label for="mailingList">
+          <input type="checkbox" id="mailingList" name="mailingList">
+          Join our mailing list
+        </label>
+
+        <p id="totalCost">Total: $0</p>
+        <p id="formError"></p>
+        <p id="confirmationMessage"></p>
+
+        <button type="submit">Place Order</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p id="copyYear"></p>
+  </footer>
+</div>
+</body>
+</html>

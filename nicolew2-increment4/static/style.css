@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color: #000000;
+}
+
+body {
+  background-color: #fbf4f8;
+}
+
+.container {
+  /* display: grid; */
+  grid-template-areas:
+    "header header"
+    "nav_bar nav_bar"
+    "main main"
+    "footer footer";
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.header {
+
+  text-align: center;
+  justify-content: center;
+  /* margin: auto; */
+}
+
+.nav_bar {
+  display: flex;
+  justify-content: right;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.main {
+  grid-area: main;
+}
+
+.main_img {
+  grid-area: main_img;
+}
+
+.footer {
+  grid-area: footer;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  text-align: center;
+  padding: 18px 16px;
+  margin-top: 20px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: rgb(169, 123, 148);
+  font-weight: 400;
+  padding: 8px 10px;
+  border: 1px solid #4d5c3b;
+  border-radius: 12px;
+}
+
+.active {
+  color: #92ad70;
+  font-weight: 600;
+}
+
+#logo {
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+  background-color: #fdfbfb;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+#purchaseFormSection {
+  display: none;
+}
+#totalCost,
+#formError,
+#confirmationMessage {
+  margin-top: 10px;
+}
+#longIntro {
+  display: none;
+}
+button {
+  padding: 8px 12px;
+  border: 1px solid #4d5c3b;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  color: rgb(169, 123, 148);
+}
+
+#buyNowForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin-top: 15px;
+}
+#readLess {
+  display: none;
+}
+#readMore,
+#readLess {
+  padding: 8px 12px;
+  margin-top: 10px;
+  border: 1px solid #4d5c3b;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  
+}
