@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="../static/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Nicole W">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse - Checkout</title>
+</head>
+<body onload="addYear(); greetingFunc();">
+    <div class="container"
+    <header class="header">
+
+    <img id="logo" src="../static/monomuselogo.png" alt="MonoMuse Museum Logo">
+    <nav class="nav_bar">
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="buytickets.html">Buy Tickets</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <h1>Checkout</h1>
+
+    <section>
+      <form id="checkoutForm">
+        <label for="visitDate">Visit Date (required)</label>
+        <input type="date" id="visitDate" name="visitDate" required>
+
+        <label for="ticketType">Ticket Type (required)</label>
+        <select id="ticketType" name="ticketType" required>
+          <option value="">Select a ticket type</option>
+          <option value=
