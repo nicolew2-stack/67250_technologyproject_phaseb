@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="../static/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Nicole W">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse - Exhibitions</title>
+</head>
+<body onload="addYear(); greetingFunc();">
+  <div class="container">
+
+    <header class="header">
+      <img id="logo" src="../static/monomuselogo.svg" alt="MonoMuse Museum Logo">
+      <nav class="nav_bar" id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="buytickets.html">Buy Tickets</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="javascript:void(0);" class="hamburger-icon" onclick="toggleNav()">&#9776;</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <h1>Exhibitions</h1>
+
+      <!-- Exhibition 1 -->
+      <section>
+        <h2>Hello Kitty &amp; Friends: 50 Years of Kawaii</h2>
+        <p>
+          Since her debut on a small vinyl coin purse on November 1, 1974, Hello Kitty
+          has grown into one of the most recognized characters on the planet. This
+          exhibition traces five decades of her evolution through original design sketches,
+          rare vintage merchandise, and immersive displays exploring how her look and
+          meaning have shifted across generations. From early 1970s stationery sets to
+          high-fashion collaborations and contemporary art commissions, visitors can follow
+          Hello Kitty's journey from a simple ribbon-adorned cat into a global icon of
+          friendship, joy, and self-expression. Interactive photo spots and a curated
+          archive of fan-made tributes round out the experience, celebrating the personal
+          connection between Hello Kitty and the millions of fans who have kept her close
+          throughout their lives.
+        </p>
+      </section>
+
+      <!-- Exhibition 2 -->
+      <section>
+        <h2>The Kawaii Code: Designing Sanrio's Universe</h2>
+        <p>
+          Behind every Cinnamoroll plush, every My Melody ribbon, and every Kuromi charm
+          is a team of designers who have spent over six decades perfecting the art of
+          cute. This exhibition pulls back the curtain on Sanrio's creative process,
+          presenting original concept sketches, character development timelines, and
+          never-before-seen design prototypes from across Sanrio's roster of more than
+          450 characters. Through archival displays and hands-on sketching stations,
+          visitors can explore how Sanrio translates warmth, personality, and cultural
+          moments into the simple shapes and soft palettes that have resonated with
+          audiences worldwide. The exhibition also highlights how characters like
+          Pompompurin, Little Twin Stars, and Gudetama each carry a distinct personality
+          and following — showing that the Sanrio universe is far bigger, and far more
+          intentional, than it might first appear.
+        </p>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p id="copyYear"></p>
+    </footer>
+
+  </div>
+</body>
+</html>

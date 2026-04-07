@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/style.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-4.0.0-beta.min.js"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script src="./static/script.js" defer></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Nicole W">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse</title>
+
+  <style>
+    /* ── YouTube API player sizing ── */
+    #yt-player-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+    }
+    #yt-player-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── Video control buttons row ── */
+    .yt-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .yt-controls button {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
+</head>
+
+<body onload="addYear(); greetingFunc();">
+  <div class="container">
+
+    <header class="header">
+      <img id="logo" src="./static/monomuselogo.svg" alt="MonoMuse Museum Logo">
+
+      <nav class="nav_bar" id="mainNav">
+        <a href="index.html" class="active">Home</a>
+        <a href="views/explore.html">Explore</a>
+        <a href="views/exhibitions.html">Exhibitions</a>
+        <a href="views/buytickets.html">Buy Tickets</a>
+        <a href="views/checkout.html">Checkout</a>
+        <a href="javascript:void(0);" class="hamburger-icon" id="hamburgerBtn" onclick="toggleNav()">&#9776;</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <h1>MonoMuse</h1>
+      <br>
+      <h2 id="greeting">Welcome to MonoMuse</h2>
+
+      <p id="shortIntro">
+        MonoMuse is a museum dedicated to the colorful world of Sanrio — celebrating
+        the characters, stories, and kawaii culture that have brought joy to fans across
+        generations and around the globe.
+      </p>
+
+      <p id="longIntro">
+        From Hello Kitty's debut on a tiny vinyl coin purse in 1974 to a cast of over
+        450 beloved characters, Sanrio has created a universe built on friendship,
+        kindness, and the enduring power of cuteness. MonoMuse brings this world to
+        life through immersive exhibitions, rare archival merchandise, original artwork,
+        and interactive experiences designed for visitors of all ages. Whether you grew
+        up collecting My Melody stationery or discovered Cinnamoroll last week, there is
+        something here for every fan.
+      </p>
+
+      <button id="readMore">Read More</button>
+      <button id="readLess">Read Less</button>
+
+      <p style="margin-top: 16px;">
+        Plan your visit to experience our rotating Sanrio exhibitions, character
+        meet-and-greet events, and hands-on activities designed for all ages!
+      </p>
+
+      <a class="cta-link" href="views/buytickets.html">Buy Tickets</a>
+
+      <!-- ══════════════════════════════════════════
+           YouTube IFrame API — video eC_5OwDYUVs
+           ══════════════════════════════════════════ -->
+      <section class="video-section">
+        <h2>Featured Exhibition Preview</h2>
+        <p>Get to know Sanrio!</p>
+
+        <!-- Player mounts here -->
+        <div id="yt-player-container">
+          <div id="ytplayer"></div>
+        </div>
+
+        <!-- Play / Pause / Mute / Unmute controls -->
+        <div class="yt-controls">
+          <button onclick="ytPlay()">&#9654; Play</button>
+          <button onclick="ytPause()">&#9646;&#9646; Pause</button>
+          <button onclick="ytMute()">&#128263; Mute</button>
+          <button onclick="ytUnmute()">&#128266; Unmute</button>
+        </div>
+      </section>
+
+      <!-- Leaflet Map -->
+      <section class="map-section">
+        <h2>Find Us</h2>
+        <p>We are located in the heart of Pittsburgh, PA. Come visit us!</p>
+        <div id="map"></div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p id="copyYear"></p>
+    </footer>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       YouTube IFrame API Script
+       Must NOT be deferred — API needs to load ASAP
+       ══════════════════════════════════════════════ -->
+  <script>
+    var player;
+
+    // Step 1: Inject the YouTube IFrame API script tag dynamically
+    (function () {
+      var tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      var firstScript = document.getElementsByTagName('script')[0];
+      firstScript.parentNode.insertBefore(tag, firstScript);
+    })();
+
+    // Step 2: The API calls this automatically when it finishes loading
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('ytplayer', {
+        videoId: 'eC_5OwDYUVs',       // Your confirmed Sanrio video
+        playerVars: {
+          autoplay: 0,                 // Don't play on page load
+          rel: 0,                      // No unrelated suggested videos
+          modestbranding: 1            // Minimal YouTube branding
+        },
+        events: {
+          onReady: function (event) {
+            console.log('YouTube player is ready.');
+          },
+          onError: function (event) {
+            console.warn('YouTube player error:', event.data);
+          }
+        }
+      });
+    }
+
+    // Step 3: Control functions called by the buttons
+    function ytPlay()    { if (player) player.playVideo(); }
+    function ytPause()   { if (player) player.pauseVideo(); }
+    function ytMute()    { if (player) player.mute(); }
+    function ytUnmute()  { if (player) player.unMute(); }
+  </script>
+
+</body>
+</html>

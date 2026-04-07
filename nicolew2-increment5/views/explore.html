@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="../static/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Nicole W">
+  <meta name="keywords" content="Museum, Carnegie Mellon University, Information Systems">
+  <meta name="description" content="MonoMuse website redesign project">
+  <title>MonoMuse - Explore</title>
+
+  <style>
+    /* ── Meet & Greet section ──────────────────── */
+    .meetgreet-section h2 {
+      margin-bottom: 6px;
+    }
+
+    .meetgreet-subtitle {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 28px;
+    }
+
+    /* Card grid */
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    /* Individual event card */
+    .event-card {
+      background: #ffffff;
+      border: 1px solid #edd6e8;
+      border-radius: 14px;
+      padding: 20px 18px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(169, 123, 148, 0.15);
+    }
+
+    /* Decorative top stripe — alternates colors */
+    .event-card::before {
+      content: "";
+      display: block;
+      height: 4px;
+      border-radius: 4px 4px 0 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .event-card.pink::before   { background: #f2a7c3; }
+    .event-card.lavender::before { background: #c4a7e7; }
+    .event-card.mint::before   { background: #8ed8c8; }
+    .event-card.peach::before  { background: #f5b88a; }
+    .event-card.sky::before    { background: #8ab8f5; }
+
+    /* Date badge */
+    .event-date {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #2c2c2c;
+      border-radius: 6px;
+      padding: 3px 9px;
+      margin-bottom: 12px;
+    }
+
+    /* Character emoji */
+    .event-character {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    /* Card title */
+    .event-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #1a1a1a;
+    }
+
+    /* Card body */
+    .event-card p {
+      font-size: 0.82rem;
+      color: #666;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Spots left pill */
+    .event-spots {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #a9677c;
+      background: #fce8f0;
+      border-radius: 20px;
+      padding: 2px 10px;
+    }
+
+    /* Sanrio section image */
+    .sanrio-section img {
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+
+<body onload="addYear(); greetingFunc();">
+  <div class="container">
+
+    <header class="header">
+      <img id="logo" src="../static/monomuselogo.svg" alt="MonoMuse Museum Logo">
+      <nav class="nav_bar" id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="buytickets.html">Buy Tickets</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="javascript:void(0);" class="hamburger-icon" onclick="toggleNav()">&#9776;</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <h1>Explore</h1>
+
+      <!-- ── Meet & Greet Events ─────────────────────────────── -->
+      <section class="meetgreet-section">
+        <h2>✦ Character Meet &amp; Greets</h2>
+        <p class="meetgreet-subtitle">
+          Reserve your spot and come face-to-face with your favorite Sanrio characters!
+          Greet sessions are 15 minutes each — photos welcome. ♡
+        </p>
+
+        <div class="event-grid">
+
+          <!-- Card 1 -->
+          <div class="event-card pink">
+            <span class="event-date">Apr 12, 2026</span>
+            <span class="event-character">🎀</span>
+            <h3>Hello Kitty Greeting</h3>
+            <p>Meet the icon herself! Hello Kitty will be dressed in her spring ribbon collection.</p>
+            <span class="event-spots">12 spots left</span>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="event-card lavender">
+            <span class="event-date">Apr 19, 2026</span>
+            <span class="event-character">🐶</span>
+            <h3>Cinnamoroll Morning</h3>
+            <p>Cinnamoroll floats in for a cozy weekend meet! Perfect for the whole family.</p>
+            <span class="event-spots">8 spots left</span>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="event-card mint">
+            <span class="event-date">May 3, 2026</span>
+            <span class="event-character">🐰</span>
+            <h3>My Melody &amp; Kuromi Duo</h3>
+            <p>Frenemies united — meet both My Melody and Kuromi in a special joint session.</p>
+            <span class="event-spots">20 spots left</span>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="event-card peach">
+            <span class="event-date">May 17, 2026</span>
+            <span class="event-character">🍮</span>
+            <h3>Pompompurin Hangout</h3>
+            <p>The golden retriever pup is napping less and greeting more — catch him while you can!</p>
+            <span class="event-spots">15 spots left</span>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="event-card sky">
+            <span class="event-date">Jun 7, 2026</span>
+            <span class="event-character">⭐</span>
+            <h3>Little Twin Stars Night</h3>
+            <p>Kiki &amp; Lala descend from the sky for an exclusive evening greeting under the stars.</p>
+            <span class="event-spots">6 spots left</span>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="event-card pink">
+            <span class="event-date">Jun 21, 2026</span>
+            <span class="event-character">🥚</span>
+            <h3>Gudetama Summer Slump</h3>
+            <p>He didn't want to come, but he's here. Meet the laziest egg in the universe.</p>
+            <span class="event-spots">Unlimited</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── Sanrio History ──────────────────────────────────── -->
+      <section class="sanrio-section" style="margin-top: 48px;">
+        <h2>Sanrio History &amp; Experience</h2>
+        <img
+          src="../static/image_175486.jpg"
+          alt="Interior view of Hello Kitty Island with pink decor and character banners"
+          width="100%"
+          style="max-width: 600px;"
+        >
+        <p>
+          Founded in 1960 by Shintaro Tsuji, Sanrio began as the Yamanashi Silk Center before pivoting
+          to create cute, character-driven merchandise that sparked the global "kawaii" (cute) phenomenon.
+          The company realized early on that adding cute designs to everyday items significantly boosted
+          sales, leading to the creation of their most iconic character, Hello Kitty, in 1974.
+        </p>
+        <br>
+        <p>
+          Today, Sanrio's rich design history and cultural impact are celebrated in immersive museum
+          spaces and exhibitions worldwide. MonoMuse is proud to bring that same spirit of warmth,
+          nostalgia, and kawaii joy to our visitors — through rotating galleries, rare archival displays,
+          and the beloved characters that have defined generations of fans across the globe.
+        </p>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p id="copyYear"></p>
+    </footer>
+
+  </div>
+</body>
+</html>
